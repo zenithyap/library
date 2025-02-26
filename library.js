@@ -14,6 +14,7 @@ function addBookToLibrary(title, author, pages, read) {
 
 function display() {
     const library = document.querySelector(".card-container");
+    library.innerHTML = "";
     for (const book of myLibrary) {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -53,6 +54,7 @@ newBookButton.addEventListener("click", () => {
 addBookButton.addEventListener("click", (event) => {
     event.preventDefault();
     addBookToLibrary(bookName.value, bookAuthor.value, bookPages.value, bookReadStatus.value);
+    display();
     dialog.close();
 });
 
