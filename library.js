@@ -40,15 +40,11 @@ function display() {
 }
 
 const dialog = document.querySelector("dialog");
-const newBookButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog > button");
+const newBookButton = document.querySelector("#new-book-button");
+const closeButton = document.querySelector("form button");
 
 newBookButton.addEventListener("click", () => {
     dialog.showModal();
-});
-
-closeButton.addEventListener("click", () => {
-    dialog.close();
 });
 
 addBookToLibrary("Behave", "Robert Sapsolky", "800", "reading");

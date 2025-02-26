@@ -11,23 +11,34 @@
     <div id="my-library">
         <h1>My Library</h1>
         <dialog>
-            <button>Close</button>
             <form action="">
-                <label for="book-name">Book name</label>
-                <input type="text" id="book-name" name="book-name">
-                <label for="book-author">Book author</label>
-                <input type="text" id="book-author" name="book-author">
-                <label for="book-pages">Book pages</label>
-                <input type="text" id="book-pages" name="book-pages">
-                <label for="book-read-status">Book read status</label>
-                <select name="book-read-status" id="book-read-status">
-                    <option value="read">Read</option>
-                    <option value="to-read">Want to read</option>
-                    <option value="currently-reading">Currently Reading</option>
-                </select>
+                <p>
+                    <label for="book-name">Book name</label>
+                    <input type="text" id="book-name" name="book-name">
+                </p>
+                <p>
+                    <label for="book-author">Book author</label>
+                    <input type="text" id="book-author" name="book-author">
+                </p>
+                <p>
+                    <label for="book-pages">Book pages</label>
+                    <input type="text" id="book-pages" name="book-pages">
+                </p>
+                <p>
+                    <label for="book-read-status">Book read status</label>
+                    <select name="book-read-status" id="book-read-status">
+                        <option value="read">Read</option>
+                        <option value="to-read">Want to read</option>
+                        <option value="currently-reading">Currently Reading</option>
+                    </select>
+                </p>
+                <div>
+                    <button value="cancel" formmethod="dialog">Cancel</button>
+                    <button id="add-book-button" type="submit">Add</button>
+                </div>
             </form>
         </dialog>
-        <button>New Book</button>
+        <button id="new-book-button">New Book</button>
         <div class="card-container"></div>
     </div>
 </body>
