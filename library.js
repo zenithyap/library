@@ -14,7 +14,6 @@ function addBookToLibrary(title, author, pages, read) {
 
 function display() {
     const library = document.querySelector(".card-container");
-    library.
     for (const book of myLibrary) {
         const card = document.createElement("div");
         card.classList.add("card");
