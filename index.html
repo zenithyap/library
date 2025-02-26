@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +8,31 @@
     <link rel="stylesheet" href="./styles.css">
     <script src="./library.js" defer></script>
 </head>
+
 <body>
     <div id="my-library">
         <h1>My Library</h1>
         <dialog id="add-book-dialog">
             <form action="">
-                <p>
-                    <label for="book-name">Book name</label>
-                    <input type="text" id="book-name" name="book-name">
-                </p>
-                <p>
-                    <label for="book-author">Book author</label>
-                    <input type="text" id="book-author" name="book-author">
-                </p>
-                <p>
-                    <label for="book-pages">Book pages</label>
-                    <input type="text" id="book-pages" name="book-pages">
-                </p>
-                <p>
-                    <label for="book-read-status">Book read status</label>
-                    <select name="book-read-status" id="book-read-status">
-                        <option value="read">Read</option>
-                        <option value="to-read">Want to read</option>
-                        <option value="currently-reading">Currently Reading</option>
-                    </select>
-                </p>
-                <div class="button-container">
-                    <button value="cancel" formmethod="dialog">Cancel</button>
-                    <button id="add-book-button" type="submit">Add</button>
-                </div>
+                <button id="cancel-button" value="cancel" formmethod="dialog">&times;</button>
+                <label for="book-name">Book name</label>
+                <input type="text" id="book-name" name="book-name">
+                <label for="book-author">Book author</label>
+                <input type="text" id="book-author" name="book-author">
+                <label for="book-pages">Book pages</label>
+                <input type="text" id="book-pages" name="book-pages">
+                <label for="book-read-status">Book read status</label>
+                <select name="book-read-status" id="book-read-status">
+                    <option value="read">Read</option>
+                    <option value="to-read">Want to read</option>
+                    <option value="currently-reading">Currently Reading</option>
+                </select>
+                <button id="add-book-button" type="submit">Add</button>
             </form>
         </dialog>
         <button id="new-book-button">New Book</button>
         <div class="card-container"></div>
     </div>
 </body>
+
 </html>
