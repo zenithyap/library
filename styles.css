@@ -3,3 +3,22 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+#my-library {
+    display: grid;
+    gap: 24px;
+    padding: 48px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: #D3D3D3;
+    height: 400px;
+    border-radius: 24px;
+    padding: 24px;
+}
