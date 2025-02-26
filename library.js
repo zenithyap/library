@@ -39,6 +39,18 @@ function display() {
     }
 }
 
+const dialog = document.querySelector("dialog");
+const newBookButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog > button");
+
+newBookButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+closeButton.addEventListener("click", () => {
+    dialog.close();
+});
+
 addBookToLibrary("Behave", "Robert Sapsolky", "800", "reading");
 addBookToLibrary("Why We Sleep", "Matthew Walker", "368", "read");
 addBookToLibrary("Sapiens", "Yuval Noah Harari", "498", "read");
