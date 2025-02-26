@@ -17,8 +17,17 @@
 }
 
 .card {
-    background-color: #D3D3D3;
+    background-color: #E3D4B9;
     height: 400px;
     border-radius: 24px;
     padding: 24px;
+}
+
+#new-book-button {
+    width: 150px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    background-color: #E3D4B9;
+    font-size: 1rem;
 }
