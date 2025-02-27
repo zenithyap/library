@@ -1,4 +1,7 @@
 const NUM_READ_OPTIONS = 3;
+READ_BG = "#87A791";
+TO_READ_BG = "#E08787";
+READING_BG =  "#839FD4";
 readOptions = ["Read", "Want to Read", "Currently Reading"];
 
 let myLibrary = [];
@@ -20,11 +23,11 @@ function addBookToLibrary(title, author, pages, read) {
 
 function setReadStatusBgColor(book, read) {
     if (book.read === 0) {
-        read.style.backgroundColor = "#87A791";
+        read.style.backgroundColor = READ_BG;
     } else if (book.read === 1) {
-        read.style.backgroundColor = "#E08787";
+        read.style.backgroundColor = TO_READ_BG;
     } else if (book.read === 2) {
-        read.style.backgroundColor = "#839FD4";
+        read.style.backgroundColor = READING_BG;
     }
 }
 
