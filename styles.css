@@ -1,6 +1,7 @@
 :root {
-    --light-bg: #eeefeb;
-    --dark-bg: #808080;
+    --bg: #f5d7c8;
+    --box-bg: #fdf0e8;
+    --button-bg: #ecaf92;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -14,9 +15,15 @@ h1 {
     margin: 24px;
 }
 
-.card-container {
+.main-container {
     display: grid;
-    padding: 0px 24px 24px 24px;
+    gap: 24px;
+    padding: 24px;
+}
+
+.card-container {
+    background-color: var(--dark-bg);
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
 }
@@ -30,8 +37,6 @@ h1 {
 }
 
 #new-book-button {
-    display: block;
-    margin: 24px;
     width: 150px;
     padding: 12px 24px;
     border: none;
