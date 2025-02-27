@@ -52,10 +52,10 @@ function display() {
 
         const read = document.createElement("button");
         read.classList.add("read-button");
-        read.textContent = readOptions[+book.read];
+        read.textContent = readOptions[book.read];
         setReadStatusBgColor(book, read);
         read.addEventListener("click", () => {
-            book.setRead((+book.read + 1) % NUM_READ_OPTIONS);
+            book.setRead((book.read + 1) % NUM_READ_OPTIONS);
             read.textContent = readOptions[book.read];
             setReadStatusBgColor(book, read);
         });
@@ -67,7 +67,6 @@ function display() {
         deleteButton.addEventListener("click", () => {
             card.remove();
             myLibrary = myLibrary.filter(b => b.title !== book.title);
-            console.log(myLibrary);
         });
 
         buttonContainer.appendChild(read);
@@ -98,7 +97,7 @@ cancelButton.addEventListener("click", (event) => {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    addBookToLibrary(bookName.value, bookAuthor.value, bookPages.value, bookReadStatus.value);
+    addBookToLibrary(bookName.value, bookAuthor.value, bookPages.value, +bookReadStatus.value);
     display();
     dialog.close();
 });
