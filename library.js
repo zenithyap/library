@@ -139,15 +139,3 @@ form.addEventListener("submit", (event) => {
     display();
     dialog.close();
 });
-
-addBookToLibrary("Behave", "Robert Sapsolky", "800", 0);
-addBookToLibrary("Why We Sleep", "Matthew Walker", "368", 0);
-addBookToLibrary("Sapiens", "Yuval Noah Harari", "498", 1);
-addBookToLibrary("Atomic Habits", "James Clear", "320", 2);
-addBookToLibrary("Thinking, Fast and Slow", "Daniel Kahneman", "499", 1);
-addBookToLibrary("The Power of Habit", "Charles Duhigg", "371", 1);
-addBookToLibrary("The Subtle Art of Not Giving a F*ck", "Mark Manson", "224", 2);
-addBookToLibrary("Deep Work", "Cal Newport", "296", 1);
-addBookToLibrary("Meditations", "Marcus Aurelius", "254", 1);
-
-display();
