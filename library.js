@@ -40,8 +40,9 @@ function display() {
 }
 
 const dialog = document.querySelector("#add-book-dialog");
+const cancelButton = document.querySelector("#cancel-button");
 const newBookButton = document.querySelector("#new-book-button");
-const addBookButton = document.querySelector("#add-book-button");
+const form = document.querySelector("form");
 const bookName = document.querySelector("#book-name");
 const bookAuthor = document.querySelector("#book-author");
 const bookPages = document.querySelector("#book-pages");
@@ -51,7 +52,11 @@ newBookButton.addEventListener("click", () => {
     dialog.showModal();
 });
 
-addBookButton.addEventListener("click", (event) => {
+cancelButton.addEventListener("click", () => {
+    dialog.close();
+});
+
+form.addEventListener("submit", (event) => {
     event.preventDefault();
     addBookToLibrary(bookName.value, bookAuthor.value, bookPages.value, bookReadStatus.value);
     display();
