@@ -62,7 +62,7 @@ function display() {
 
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
-        deleteButton.textContent = "delete";
+        deleteButton.textContent = "Delete";
 
         deleteButton.addEventListener("click", () => {
             card.remove();
