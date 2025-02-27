@@ -32,6 +32,11 @@ button {
     font-weight: bold;
 }
 
+button:hover {
+    scale: 1.05;
+    transition: scale 0.1s linear;
+}
+
 p {
     font-size: var(--text-font);
 }
