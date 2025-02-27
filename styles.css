@@ -1,17 +1,21 @@
+:root {
+    --light-bg: #eeefeb;
+    --dark-bg: #808080;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-#my-library {
-    display: grid;
-    gap: 24px;
-    padding: 48px;
+h1 {
+    margin: 24px;
 }
 
 .card-container {
     display: grid;
+    padding: 0px 24px 24px 24px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
 }
@@ -24,6 +28,8 @@
 }
 
 #new-book-button {
+    display: block;
+    margin: 24px;
     width: 150px;
     padding: 12px 24px;
     border: none;
