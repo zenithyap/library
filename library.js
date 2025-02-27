@@ -36,6 +36,7 @@ function display() {
         card.appendChild(read);
 
         const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
         deleteButton.textContent = "delete";
         card.appendChild(deleteButton);
 
