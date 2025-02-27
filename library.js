@@ -37,6 +37,9 @@ function display() {
         pages.textContent = `Pages: ${book.pages}`;
         card.appendChild(pages);
 
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("button-container");
+
         const read = document.createElement("button");
         read.classList.add("read-button");
         read.textContent = readOptions[+book.read];
@@ -44,16 +47,18 @@ function display() {
             book.setRead((+book.read + 1) % NUM_READ_OPTIONS);
             read.textContent = readOptions[+book.read];
         });
-        card.appendChild(read);
 
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
         deleteButton.textContent = "delete";
-        card.appendChild(deleteButton);
 
         deleteButton.addEventListener("click", () => {
             card.remove();
         });
+
+        buttonContainer.appendChild(read);
+        buttonContainer.appendChild(deleteButton);
+        card.appendChild(buttonContainer);
 
         library.appendChild(card);
     }
