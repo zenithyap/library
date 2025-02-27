@@ -1,7 +1,7 @@
 const NUM_READ_OPTIONS = 3;
 readOptions = ["Read", "Want to Read", "Currently Reading"];
 
-const myLibrary = [];
+let myLibrary = [];
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -54,6 +54,8 @@ function display() {
 
         deleteButton.addEventListener("click", () => {
             card.remove();
+            myLibrary = myLibrary.filter(b => b.title !== book.title);
+            console.log(myLibrary);
         });
 
         buttonContainer.appendChild(read);
