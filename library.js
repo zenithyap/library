@@ -77,7 +77,8 @@ newBookButton.addEventListener("click", () => {
     dialog.showModal();
 });
 
-cancelButton.addEventListener("click", () => {
+cancelButton.addEventListener("click", (event) => {
+    event.preventDefault();
     dialog.close();
 });
 
