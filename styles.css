@@ -6,9 +6,6 @@
     --text-font: clamp(0.9rem, 2vw, 1.1rem);
     --title-font: clamp(1.3rem, 2vw, 1.5rem);
     --button-font: clamp(1rem, 2vw, 1,3rem);
-    --read-bg: #87A791;
-    --to-read-bg: #E08787;
-    --reading-bg: #839FD4;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
