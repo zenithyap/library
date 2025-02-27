@@ -1,6 +1,7 @@
 :root {
     --light-bg: #eeefeb;
     --dark-bg: #808080;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 * {
