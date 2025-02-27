@@ -1,11 +1,14 @@
 :root {
     --light: #fdf0e8;
     --card-bg: #f5d7c8;
-    --delete-button-bg: #f1c7b2;
+    --delete-button-bg: #e7b8a3;
     --dark: #c08879;
     --text-font: clamp(0.9rem, 2vw, 1.1rem);
     --title-font: clamp(1.3rem, 2vw, 1.5rem);
     --button-font: clamp(1rem, 2vw, 1,3rem);
+    --read-bg: #87A791;
+    --to-read-bg: #E08787;
+    --reading-bg: #839FD4;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -150,12 +153,11 @@ header {
 
 .delete-button {
     background-color: var(--delete-button-bg);
-    color: var(--dark);
+    color: var(--light);
 }
 
 .read-button {
-    background-color: var(--light);
-    color: var(--dark);
+    color: var(--light);
 }
 
 .button-container {

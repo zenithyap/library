@@ -18,6 +18,16 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book);
 }
 
+function setReadStatusBgColor(book, read) {
+    if (book.read === 0) {
+        read.style.backgroundColor = "#87A791";
+    } else if (book.read === 1) {
+        read.style.backgroundColor = "#E08787";
+    } else if (book.read === 2) {
+        read.style.backgroundColor = "#839FD4";
+    }
+}
+
 function display() {
     const library = document.querySelector(".card-container");
     library.innerHTML = "";
@@ -43,9 +53,11 @@ function display() {
         const read = document.createElement("button");
         read.classList.add("read-button");
         read.textContent = readOptions[+book.read];
+        setReadStatusBgColor(book, read);
         read.addEventListener("click", () => {
             book.setRead((+book.read + 1) % NUM_READ_OPTIONS);
-            read.textContent = readOptions[+book.read];
+            read.textContent = readOptions[book.read];
+            setReadStatusBgColor(book, read);
         });
 
         const deleteButton = document.createElement("button");
