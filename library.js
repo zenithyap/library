@@ -28,7 +28,7 @@ function display() {
         card.appendChild(author);
 
         const pages = document.createElement("p");
-        pages.textContent = `pages: ${book.pages}`;
+        pages.textContent = `Pages: ${book.pages}`;
         card.appendChild(pages);
 
         const read = document.createElement("p");
