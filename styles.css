@@ -80,10 +80,15 @@
 
 }
 
-.delete-button {
+.delete-button,
+.read-button {
     width: 100%;
     padding: 18px 0px;
     border-radius: 12px;
     background-color: #808080;
     border: none;
+}
+
+.read-button {
+    background-color: #D3D3D3;
 }

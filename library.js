@@ -1,10 +1,16 @@
-const myLibrary = [];
+const NUM_READ_OPTIONS = 3;
+readOptions = ["Read", "Want to Read", "Currently Reading"];
 
+const myLibrary = [];
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+}
+
+Book.prototype.setRead = function(readStatus) {
+    this.read = readStatus;
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -31,8 +37,13 @@ function display() {
         pages.textContent = `Pages: ${book.pages}`;
         card.appendChild(pages);
 
-        const read = document.createElement("p");
-        read.textContent = book.read;
+        const read = document.createElement("button");
+        read.classList.add("read-button");
+        read.textContent = readOptions[+book.read];
+        read.addEventListener("click", () => {
+            book.setRead((+book.read + 1) % NUM_READ_OPTIONS);
+            read.textContent = readOptions[+book.read];
+        });
         card.appendChild(read);
 
         const deleteButton = document.createElement("button");
@@ -72,14 +83,14 @@ form.addEventListener("submit", (event) => {
     dialog.close();
 });
 
-addBookToLibrary("Behave", "Robert Sapsolky", "800", "reading");
-addBookToLibrary("Why We Sleep", "Matthew Walker", "368", "read");
-addBookToLibrary("Sapiens", "Yuval Noah Harari", "498", "read");
-addBookToLibrary("Atomic Habits", "James Clear", "320", "reading");
-addBookToLibrary("Thinking, Fast and Slow", "Daniel Kahneman", "499", "to read");
-addBookToLibrary("The Power of Habit", "Charles Duhigg", "371", "read");
-addBookToLibrary("The Subtle Art of Not Giving a F*ck", "Mark Manson", "224", "to read");
-addBookToLibrary("Deep Work", "Cal Newport", "296", "reading");
-addBookToLibrary("Meditations", "Marcus Aurelius", "254", "read");
+addBookToLibrary("Behave", "Robert Sapsolky", "800", 0);
+addBookToLibrary("Why We Sleep", "Matthew Walker", "368", 0);
+addBookToLibrary("Sapiens", "Yuval Noah Harari", "498", 1);
+addBookToLibrary("Atomic Habits", "James Clear", "320", 2);
+addBookToLibrary("Thinking, Fast and Slow", "Daniel Kahneman", "499", 1);
+addBookToLibrary("The Power of Habit", "Charles Duhigg", "371", 1);
+addBookToLibrary("The Subtle Art of Not Giving a F*ck", "Mark Manson", "224", 2);
+addBookToLibrary("Deep Work", "Cal Newport", "296", 1);
+addBookToLibrary("Meditations", "Marcus Aurelius", "254", 1);
 
 display();
