@@ -1,7 +1,8 @@
 :root {
-    --bg: #f5d7c8;
-    --box-bg: #fdf0e8;
-    --button-bg: #ecaf92;
+    --light: #fdf0e8;
+    --card-bg: #f5d7c8;
+    --delete-button-bg: #f1c7b2;
+    --dark: #c08879;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -11,14 +12,22 @@
     box-sizing: border-box;
 }
 
-h1 {
-    margin: 24px;
+header {
+    display: flex;
+    height: 100px;
+    background-color: var(--light-bg);
+    color: var(--dark);
+    align-items: center;
+    padding: 48px;
 }
 
 .main-container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 24px;
-    padding: 24px;
+    padding: 48px;
+    background-color: var(--light);
+    min-height: calc(100vh - 100px);
 }
 
 .card-container {
@@ -31,7 +40,8 @@ h1 {
 .card {
     display: grid;
     gap: 12px;
-    background-color: #E3D4B9;
+    background-color: var(--card-bg);
+    color: var(--dark);
     border-radius: 12px;
     padding: 24px;
 }
@@ -41,7 +51,8 @@ h1 {
     padding: 12px 24px;
     border: none;
     border-radius: 12px;
-    background-color: #E3D4B9;
+    background-color: var(--dark);
+    color: var(--light);
     font-size: 1rem;
 }
 
@@ -50,6 +61,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 24px 24px 36px 24px;
+    color: var(--dark);
     border: none;
     
     form {
@@ -62,23 +74,34 @@ h1 {
 
     input, select {
         font-size: 1rem;
-        border: 2px solid #D8D8D8;
+        border: 2px solid var(--dark);
         margin-bottom: 18px;
         border-radius: 5px;
         padding: 6px 12px;
+        color: var(--dark);
+
+    }
+
+    select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right;
     }
 
     #add-book-button {
-        padding: 6px 12px;
+        padding: 12px 18px;
         border: none;
         border-radius: 6px;
-        background-color: #E3D4B9;
+        background-color: var(--delete-button-bg);
+        color: var(--dark);
         font-size: 1rem;
     }
 
     #cancel-button {
         border: none;
         background-color: #FFF;
+        color: inherit;
         width: 30px;
         height: 30px;
         justify-self: flex-end;
@@ -98,10 +121,15 @@ h1 {
     width: 100%;
     padding: 18px 0px;
     border-radius: 12px;
-    background-color: #808080;
     border: none;
 }
 
+.delete-button {
+    background-color: var(--delete-button-bg);
+    color: var(--dark);
+}
+
 .read-button {
-    background-color: #D3D3D3;
+    background-color: var(--light);
+    color: var(--dark);
 }
