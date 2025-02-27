@@ -35,6 +35,14 @@ function display() {
         read.textContent = book.read;
         card.appendChild(read);
 
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "delete";
+        card.appendChild(deleteButton);
+
+        deleteButton.addEventListener("click", () => {
+            card.remove();
+        });
+
         library.appendChild(card);
     }
 }
