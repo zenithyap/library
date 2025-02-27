@@ -28,49 +28,87 @@ function setReadStatusBgColor(book, read) {
     }
 }
 
+function createCardElement() {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    return card;
+}
+
+function createTitleElement(bookTitle) {
+    const title = document.createElement("h2");
+    title.textContent = bookTitle;
+
+    return title;
+}
+
+function createAuthorElement(bookAuthor) {
+    const author = document.createElement("p");
+    author.textContent = bookAuthor;
+
+    return author;
+}
+
+function createPagesElement(bookPages) {
+    const pages = document.createElement("p");
+    pages.textContent = `Pages: ${bookPages}`;
+
+    return pages;
+}
+
+function createButtonContainer() {
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+
+    return buttonContainer;
+}
+
+function createReadStatusElement(book) {
+    const read = document.createElement("button");
+    read.classList.add("read-button");
+    read.textContent = readOptions[book.read];
+    setReadStatusBgColor(book, read);
+
+    read.addEventListener("click", () => {
+        book.setRead((book.read + 1) % NUM_READ_OPTIONS);
+        read.textContent = readOptions[book.read];
+        setReadStatusBgColor(book, read);
+    });
+
+    return read;
+}
+
+function createDeleteElement(bookTitle, card) {
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.textContent = "Delete";
+
+    deleteButton.addEventListener("click", () => {
+        card.remove();
+        myLibrary = myLibrary.filter(b => b.title !== bookTitle);
+    });
+
+    return deleteButton;
+}
+
 function display() {
     const library = document.querySelector(".card-container");
     library.innerHTML = "";
     for (const book of myLibrary) {
-        const card = document.createElement("div");
-        card.classList.add("card");
+        const card = createCardElement();
+        const title = createTitleElement(book.title);
+        const author = createAuthorElement(book.author);
+        const pages = createPagesElement(book.pages);
+        const buttonContainer = createButtonContainer();
+        const readStatusButton = createReadStatusElement(book);
+        const deleteButton = createDeleteElement(book.title, card);
 
-        const title = document.createElement("h2");
-        title.textContent = book.title;
-        card.appendChild(title);
-
-        const author = document.createElement("p");
-        author.textContent = book.author;
-        card.appendChild(author);
-
-        const pages = document.createElement("p");
-        pages.textContent = `Pages: ${book.pages}`;
-        card.appendChild(pages);
-
-        const buttonContainer = document.createElement("div");
-        buttonContainer.classList.add("button-container");
-
-        const read = document.createElement("button");
-        read.classList.add("read-button");
-        read.textContent = readOptions[book.read];
-        setReadStatusBgColor(book, read);
-        read.addEventListener("click", () => {
-            book.setRead((book.read + 1) % NUM_READ_OPTIONS);
-            read.textContent = readOptions[book.read];
-            setReadStatusBgColor(book, read);
-        });
-
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-button");
-        deleteButton.textContent = "Delete";
-
-        deleteButton.addEventListener("click", () => {
-            card.remove();
-            myLibrary = myLibrary.filter(b => b.title !== book.title);
-        });
-
-        buttonContainer.appendChild(read);
+        buttonContainer.appendChild(readStatusButton);
         buttonContainer.appendChild(deleteButton);
+
+        card.appendChild(title);
+        card.appendChild(author);
+        card.appendChild(pages);
         card.appendChild(buttonContainer);
 
         library.appendChild(card);
