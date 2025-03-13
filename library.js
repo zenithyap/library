@@ -4,8 +4,6 @@ TO_READ_BG = "#E08787";
 READING_BG =  "#839FD4";
 readOptions = ["Read", "Want to Read", "Currently Reading"];
 
-let myLibrary = [];
-
 class Book {
     title;
     author;
@@ -22,7 +20,31 @@ class Book {
     setRead(readStatus) {
         this.read = readStatus;
     }
+
+    toggleReadStatus(updateUi) {
+        this.read = (this.read + 1) % NUM_READ_OPTIONS;
+        updateUi();
+    }
 }
+
+const libraryController = (function() {
+    library = [];
+
+    function addBookToLibrary(title, author, pages, read) {
+        const book = new Book(title, author, pages, read);
+        library.push(book);
+    }
+
+    function getLibrary() {
+        return library;
+    }
+
+    function filterLibrary(bookTitleToDelete) {
+        library = library.filter(b => b.title !== bookTitleToDelete);
+    }
+
+    return { addBookToLibrary, getLibrary, filterLibrary };
+})();
 
 const displayController = (function() {
     const dialog = document.querySelector("#add-book-dialog");
@@ -86,7 +108,7 @@ const displayController = (function() {
         setReadStatusBgColor(book, read);
     
         read.addEventListener("click", () => {
-            libraryController.updateReadStatus(book, () => {
+            book.toggleReadStatus(() => {
                 read.textContent = readOptions[book.read];
                 setReadStatusBgColor(book, read);
             })
@@ -101,8 +123,8 @@ const displayController = (function() {
         deleteButton.textContent = "Delete";
     
         deleteButton.addEventListener("click", () => {
-            card.remove();
-            myLibrary = myLibrary.filter(b => b.title !== bookTitle);
+            libraryController.filterLibrary(bookTitle);
+            display();
         });
     
         return deleteButton;
@@ -111,7 +133,7 @@ const displayController = (function() {
     function display() {
         const library = document.querySelector(".card-container");
         library.innerHTML = "";
-        for (const book of myLibrary) {
+        for (const book of libraryController.getLibrary()) {
             const card = createCardElement();
             const title = createTitleElement(book.title);
             const author = createAuthorElement(book.author);
@@ -147,18 +169,4 @@ const displayController = (function() {
         display();
         dialog.close();
     });
-})();
-
-const libraryController = (function() {
-    function updateReadStatus(book, updateUi) {
-        book.setRead((book.read + 1) % NUM_READ_OPTIONS);
-        updateUi();
-    }
-
-    function addBookToLibrary(title, author, pages, read) {
-        const book = new Book(title, author, pages, read);
-        myLibrary.push(book);
-    }
-
-    return { updateReadStatus, addBookToLibrary };
 })();
