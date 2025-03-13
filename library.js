@@ -5,15 +5,23 @@ READING_BG =  "#839FD4";
 readOptions = ["Read", "Want to Read", "Currently Reading"];
 
 let myLibrary = [];
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
 
-Book.prototype.setRead = function(readStatus) {
-    this.read = readStatus;
+class Book {
+    title;
+    author;
+    pages;
+    read;
+
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    setRead(readStatus) {
+        this.read = readStatus;
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
